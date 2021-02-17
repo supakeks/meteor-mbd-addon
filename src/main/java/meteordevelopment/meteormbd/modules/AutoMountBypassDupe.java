@@ -20,6 +20,7 @@ import minegame159.meteorclient.settings.Setting;
 import minegame159.meteorclient.settings.SettingGroup;
 import minegame159.meteorclient.utils.player.ChatUtils;
 import minegame159.meteorclient.utils.player.InvUtils;
+import minegame159.meteorclient.utils.player.Rotations;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.client.gui.screen.ingame.HorseScreen;
 import net.minecraft.entity.Entity;
@@ -132,7 +133,7 @@ public class AutoMountBypassDupe extends Module {
             if (isDupeTime()) {
                 if (!slotsToThrow.isEmpty()) {
                     if (faceDown.get()) {
-                        mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookOnly(mc.player.yaw, 90, mc.player.isOnGround()));
+                        Rotations.rotate(mc.player.yaw, 90);
                     }
                     for (int i : slotsToThrow) {
                         InvUtils.clickSlot(i, 1, SlotActionType.THROW);
